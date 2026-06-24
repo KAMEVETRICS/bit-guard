@@ -1,0 +1,249 @@
+﻿{
+    "source":  "demo-agent-log-schema",
+    "demo_only":  true,
+    "agent_id":  "sentinel-demo-agent",
+    "run_id":  "demo-run-001",
+    "exported_at":  "2026-06-23T09:00:00Z",
+    "orders":  [
+                   {
+                       "order_id":  "ord-1001",
+                       "symbol":  "BTCUSDT",
+                       "side":  "buy",
+                       "order_type":  "market",
+                       "price":  65000,
+                       "quantity":  0.03,
+                       "status":  "filled",
+                       "created_at":  "2026-06-22T09:00:00Z"
+                   },
+                   {
+                       "order_id":  "ord-1002",
+                       "symbol":  "BTCUSDT",
+                       "side":  "sell",
+                       "order_type":  "market",
+                       "price":  65750,
+                       "quantity":  0.03,
+                       "status":  "filled",
+                       "created_at":  "2026-06-22T15:00:00Z"
+                   },
+                   {
+                       "order_id":  "ord-1003",
+                       "symbol":  "ETHUSDT",
+                       "side":  "buy",
+                       "order_type":  "market",
+                       "price":  3520,
+                       "quantity":  0.8,
+                       "status":  "filled",
+                       "created_at":  "2026-06-22T16:00:00Z"
+                   },
+                   {
+                       "order_id":  "ord-1004",
+                       "symbol":  "ETHUSDT",
+                       "side":  "sell",
+                       "order_type":  "market",
+                       "price":  3460,
+                       "quantity":  0.8,
+                       "status":  "filled",
+                       "created_at":  "2026-06-23T02:00:00Z"
+                   }
+               ],
+    "fills":  [
+                  {
+                      "fill_id":  "fill-1",
+                      "order_id":  "ord-1001",
+                      "symbol":  "BTCUSDT",
+                      "side":  "buy",
+                      "price":  65000,
+                      "quantity":  0.03,
+                      "fee_usdt":  1.17,
+                      "timestamp":  "2026-06-22T09:00:05Z"
+                  },
+                  {
+                      "fill_id":  "fill-2",
+                      "order_id":  "ord-1002",
+                      "symbol":  "BTCUSDT",
+                      "side":  "sell",
+                      "price":  65750,
+                      "quantity":  0.03,
+                      "fee_usdt":  1.18,
+                      "timestamp":  "2026-06-22T15:00:05Z"
+                  },
+                  {
+                      "fill_id":  "fill-3",
+                      "order_id":  "ord-1003",
+                      "symbol":  "ETHUSDT",
+                      "side":  "buy",
+                      "price":  3520,
+                      "quantity":  0.8,
+                      "fee_usdt":  1.69,
+                      "timestamp":  "2026-06-22T16:00:05Z"
+                  },
+                  {
+                      "fill_id":  "fill-4",
+                      "order_id":  "ord-1004",
+                      "symbol":  "ETHUSDT",
+                      "side":  "sell",
+                      "price":  3460,
+                      "quantity":  0.8,
+                      "fee_usdt":  1.66,
+                      "timestamp":  "2026-06-23T02:00:05Z"
+                  }
+              ],
+    "positions":  [
+                      {
+                          "position_id":  "pos-1",
+                          "symbol":  "BTCUSDT",
+                          "side":  "long",
+                          "notional_usdt":  4200,
+                          "leverage":  4,
+                          "unrealized_pnl":  -35,
+                          "margin":  1050,
+                          "timestamp":  "2026-06-23T09:00:00Z"
+                      },
+                      {
+                          "position_id":  "pos-2",
+                          "symbol":  "ETHUSDT",
+                          "side":  "long",
+                          "notional_usdt":  1300,
+                          "leverage":  2,
+                          "unrealized_pnl":  12,
+                          "margin":  650,
+                          "timestamp":  "2026-06-23T09:00:00Z"
+                      }
+                  ],
+    "funding_payments":  [
+                             {
+                                 "symbol":  "BTCUSDT",
+                                 "amount_usdt":  -4.2,
+                                 "rate":  0.00031,
+                                 "timestamp":  "2026-06-22T16:00:00Z"
+                             },
+                             {
+                                 "symbol":  "ETHUSDT",
+                                 "amount_usdt":  -1.1,
+                                 "rate":  0.00019,
+                                 "timestamp":  "2026-06-23T00:00:00Z"
+                             }
+                         ],
+    "account_snapshots":  [
+                              {
+                                  "timestamp":  "2026-06-23T09:00:00Z",
+                                  "equity_usdt":  7200,
+                                  "available_usdt":  2680
+                              }
+                          ],
+    "agent_decisions":  [
+                            {
+                                "decision_id":  "dec-1",
+                                "symbol":  "BTCUSDT",
+                                "action":  "buy",
+                                "confidence":  0.76,
+                                "stop_loss":  63700,
+                                "take_profit":  67600,
+                                "rationale":  "Trend continuation after futures open interest expansion.",
+                                "timestamp":  "2026-06-22T08:59:00Z"
+                            },
+                            {
+                                "decision_id":  "dec-2",
+                                "symbol":  "ETHUSDT",
+                                "action":  "buy",
+                                "confidence":  0.69,
+                                "stop_loss":  0,
+                                "take_profit":  3670,
+                                "rationale":  "Mean reversion after a sharp pullback.",
+                                "timestamp":  "2026-06-22T15:59:00Z"
+                            }
+                        ],
+    "skill_hub":  {
+                      "macro_analyst":  {
+                                            "stance":  "mixed headwind",
+                                            "summary":  "Macro backdrop is mixed: risk assets have support, but dollar strength and event risk keep BTC from a clean risk-on setup."
+                                        },
+                      "market_intel":  {
+                                           "stance":  "whale accumulation bullish",
+                                           "summary":  "Top-trader and market-structure proxies show BTC accumulation, but the signal needs confirmation from derivatives positioning."
+                                       },
+                      "news_briefing":  {
+                                            "stance":  "event risk",
+                                            "summary":  "Fresh market headlines point to catalyst risk around upcoming policy and liquidity events."
+                                        },
+                      "sentiment_analyst":  {
+                                                "stance":  "crowded longs funding elevated",
+                                                "summary":  "Long exposure is crowded and funding is elevated, increasing long-squeeze risk if price stalls."
+                                            },
+                      "technical_analysis":  {
+                                                 "stance":  "bullish trend near resistance",
+                                                 "summary":  "Trend remains constructive, but price is close to resistance and needs breakout confirmation."
+                                             }
+                  },
+    "copy_trading_pings":  [
+                               {
+                                   "source":  "copy_trading",
+                                   "symbol":  "BTCUSDT",
+                                   "direction":  "long",
+                                   "notional_usdt":  4200,
+                                   "followers":  1860,
+                                   "leader_drawdown_pct":  12.4,
+                                   "summary":  "A highly followed copy-trading leader is net long BTC, but the follower crowd is large and the leader has meaningful drawdown."
+                               }
+                           ],
+    "market_context":  {
+                           "source":  "demo-supplied-candles",
+                           "fetch_status":  "supplied",
+                           "product_type":  "USDT-FUTURES",
+                           "market_type":  "futures",
+                           "candles":  {
+                                           "BTCUSDT":  [
+                                                           {
+                                                               "timestamp":  "2026-06-22T09:00:00Z",
+                                                               "open":  64900,
+                                                               "high":  65200,
+                                                               "low":  64800,
+                                                               "close":  65000,
+                                                               "volume":  1200
+                                                           },
+                                                           {
+                                                               "timestamp":  "2026-06-22T12:00:00Z",
+                                                               "open":  65000,
+                                                               "high":  66000,
+                                                               "low":  64950,
+                                                               "close":  65600,
+                                                               "volume":  1550
+                                                           },
+                                                           {
+                                                               "timestamp":  "2026-06-22T15:00:00Z",
+                                                               "open":  65600,
+                                                               "high":  65800,
+                                                               "low":  65400,
+                                                               "close":  65720,
+                                                               "volume":  980
+                                                           }
+                                                       ],
+                                           "ETHUSDT":  [
+                                                           {
+                                                               "timestamp":  "2026-06-22T16:00:00Z",
+                                                               "open":  3515,
+                                                               "high":  3540,
+                                                               "low":  3480,
+                                                               "close":  3520,
+                                                               "volume":  8700
+                                                           },
+                                                           {
+                                                               "timestamp":  "2026-06-22T20:00:00Z",
+                                                               "open":  3520,
+                                                               "high":  3530,
+                                                               "low":  3440,
+                                                               "close":  3465,
+                                                               "volume":  9200
+                                                           },
+                                                           {
+                                                               "timestamp":  "2026-06-23T02:00:00Z",
+                                                               "open":  3465,
+                                                               "high":  3480,
+                                                               "low":  3430,
+                                                               "close":  3460,
+                                                               "volume":  6100
+                                                           }
+                                                       ]
+                                       }
+                       }
+}

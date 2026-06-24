@@ -1,0 +1,250 @@
+{
+  "account_snapshots": [
+    {
+      "available_usdt": 2680,
+      "equity_usdt": 7200,
+      "timestamp": "2026-06-23T09:00:00Z"
+    }
+  ],
+  "agent_decisions": [
+    {
+      "action": "buy",
+      "confidence": 0.76,
+      "decision_id": "dec-1",
+      "rationale": "Trend continuation after futures open interest expansion.",
+      "stop_loss": 63700,
+      "symbol": "BTCUSDT",
+      "take_profit": 67600,
+      "timestamp": "2026-06-22T08:59:00Z"
+    },
+    {
+      "action": "buy",
+      "confidence": 0.69,
+      "decision_id": "dec-2",
+      "rationale": "Mean reversion after a sharp pullback.",
+      "stop_loss": 0,
+      "symbol": "ETHUSDT",
+      "take_profit": 3670,
+      "timestamp": "2026-06-22T15:59:00Z"
+    }
+  ],
+  "agent_id": "sentinel-demo-agent",
+  "copy_trading_pings": [
+    {
+      "direction": "long",
+      "followers": 1860,
+      "leader_drawdown_pct": 12.4,
+      "notional_usdt": 4200,
+      "source": "copy_trading",
+      "summary": "A highly followed copy-trading leader is net long BTC, but the follower crowd is large and the leader has meaningful drawdown.",
+      "symbol": "BTCUSDT"
+    }
+  ],
+  "demo_only": true,
+  "exported_at": "2026-06-23T09:00:00Z",
+  "fills": [
+    {
+      "fee_usdt": 1.17,
+      "fill_id_hash": "99c5865a983e",
+      "order_id_hash": "d85809b5125a",
+      "price": 65000,
+      "quantity": 0.03,
+      "side": "buy",
+      "symbol": "BTCUSDT",
+      "timestamp": "2026-06-22T09:00:05Z"
+    },
+    {
+      "fee_usdt": 1.18,
+      "fill_id_hash": "c452bb95139c",
+      "order_id_hash": "1ca9b8ff986e",
+      "price": 65750,
+      "quantity": 0.03,
+      "side": "sell",
+      "symbol": "BTCUSDT",
+      "timestamp": "2026-06-22T15:00:05Z"
+    },
+    {
+      "fee_usdt": 1.69,
+      "fill_id_hash": "26f48f65fcdd",
+      "order_id_hash": "ff760588fab4",
+      "price": 3520,
+      "quantity": 0.8,
+      "side": "buy",
+      "symbol": "ETHUSDT",
+      "timestamp": "2026-06-22T16:00:05Z"
+    },
+    {
+      "fee_usdt": 1.66,
+      "fill_id_hash": "d3ab1ca45f91",
+      "order_id_hash": "4a73047989a7",
+      "price": 3460,
+      "quantity": 0.8,
+      "side": "sell",
+      "symbol": "ETHUSDT",
+      "timestamp": "2026-06-23T02:00:05Z"
+    }
+  ],
+  "funding_payments": [
+    {
+      "amount_usdt": -4.2,
+      "rate": 0.00031,
+      "symbol": "BTCUSDT",
+      "timestamp": "2026-06-22T16:00:00Z"
+    },
+    {
+      "amount_usdt": -1.1,
+      "rate": 0.00019,
+      "symbol": "ETHUSDT",
+      "timestamp": "2026-06-23T00:00:00Z"
+    }
+  ],
+  "market_context": {
+    "candles": {
+      "BTCUSDT": [
+        {
+          "close": 65000,
+          "high": 65200,
+          "low": 64800,
+          "open": 64900,
+          "timestamp": "2026-06-22T09:00:00Z",
+          "volume": 1200
+        },
+        {
+          "close": 65600,
+          "high": 66000,
+          "low": 64950,
+          "open": 65000,
+          "timestamp": "2026-06-22T12:00:00Z",
+          "volume": 1550
+        },
+        {
+          "close": 65720,
+          "high": 65800,
+          "low": 65400,
+          "open": 65600,
+          "timestamp": "2026-06-22T15:00:00Z",
+          "volume": 980
+        }
+      ],
+      "ETHUSDT": [
+        {
+          "close": 3520,
+          "high": 3540,
+          "low": 3480,
+          "open": 3515,
+          "timestamp": "2026-06-22T16:00:00Z",
+          "volume": 8700
+        },
+        {
+          "close": 3465,
+          "high": 3530,
+          "low": 3440,
+          "open": 3520,
+          "timestamp": "2026-06-22T20:00:00Z",
+          "volume": 9200
+        },
+        {
+          "close": 3460,
+          "high": 3480,
+          "low": 3430,
+          "open": 3465,
+          "timestamp": "2026-06-23T02:00:00Z",
+          "volume": 6100
+        }
+      ]
+    },
+    "fetch_status": "supplied",
+    "market_type": "futures",
+    "product_type": "USDT-FUTURES",
+    "source": "demo-supplied-candles"
+  },
+  "orders": [
+    {
+      "created_at": "2026-06-22T09:00:00Z",
+      "order_id_hash": "d85809b5125a",
+      "order_type": "market",
+      "price": 65000,
+      "quantity": 0.03,
+      "side": "buy",
+      "status": "filled",
+      "symbol": "BTCUSDT"
+    },
+    {
+      "created_at": "2026-06-22T15:00:00Z",
+      "order_id_hash": "1ca9b8ff986e",
+      "order_type": "market",
+      "price": 65750,
+      "quantity": 0.03,
+      "side": "sell",
+      "status": "filled",
+      "symbol": "BTCUSDT"
+    },
+    {
+      "created_at": "2026-06-22T16:00:00Z",
+      "order_id_hash": "ff760588fab4",
+      "order_type": "market",
+      "price": 3520,
+      "quantity": 0.8,
+      "side": "buy",
+      "status": "filled",
+      "symbol": "ETHUSDT"
+    },
+    {
+      "created_at": "2026-06-23T02:00:00Z",
+      "order_id_hash": "4a73047989a7",
+      "order_type": "market",
+      "price": 3460,
+      "quantity": 0.8,
+      "side": "sell",
+      "status": "filled",
+      "symbol": "ETHUSDT"
+    }
+  ],
+  "positions": [
+    {
+      "leverage": 4,
+      "margin": 1050,
+      "notional_usdt": 4200,
+      "position_id_hash": "db89260c1f2d",
+      "side": "long",
+      "symbol": "BTCUSDT",
+      "timestamp": "2026-06-23T09:00:00Z",
+      "unrealized_pnl": -35
+    },
+    {
+      "leverage": 2,
+      "margin": 650,
+      "notional_usdt": 1300,
+      "position_id_hash": "fdeeb3074076",
+      "side": "long",
+      "symbol": "ETHUSDT",
+      "timestamp": "2026-06-23T09:00:00Z",
+      "unrealized_pnl": 12
+    }
+  ],
+  "redacted_at": "2026-06-24T20:11:06Z",
+  "run_id": "demo-run-001",
+  "skill_hub": {
+    "macro_analyst": {
+      "stance": "mixed headwind",
+      "summary": "Macro backdrop is mixed: risk assets have support, but dollar strength and event risk keep BTC from a clean risk-on setup."
+    },
+    "market_intel": {
+      "stance": "whale accumulation bullish",
+      "summary": "Top-trader and market-structure proxies show BTC accumulation, but the signal needs confirmation from derivatives positioning."
+    },
+    "news_briefing": {
+      "stance": "event risk",
+      "summary": "Fresh market headlines point to catalyst risk around upcoming policy and liquidity events."
+    },
+    "sentiment_analyst": {
+      "stance": "crowded longs funding elevated",
+      "summary": "Long exposure is crowded and funding is elevated, increasing long-squeeze risk if price stalls."
+    },
+    "technical_analysis": {
+      "stance": "bullish trend near resistance",
+      "summary": "Trend remains constructive, but price is close to resistance and needs breakout confirmation."
+    }
+  },
+  "source": "demo-agent-log-schema"
+}

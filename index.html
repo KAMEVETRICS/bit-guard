@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitGuard Sentinel - Agent Risk & Order Audit</title>
+    <meta name="description" content="Audit agent trading behavior on Bitget without sharing API keys. Reconstruct trades, calculate PnL, score risk, and enforce policy - all locally.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:wght@200..600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <!-- --- Navbar --- -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-text">BitGuard</span>
+            <span class="logo-badge">SENTINEL</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#audit">Audit Output</a>
+            <a href="/dashboard" class="btn-primary">Open Dashboard &rarr;</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </nav>
+
+    <!-- --- Mobile Nav Drawer --- -->
+    <div class="mobile-nav">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#audit">Audit Output</a>
+        <a href="/dashboard" class="btn-primary" style="text-align:center">Open Dashboard &rarr;</a>
+    </div>
+
+    <!-- --- Hero --- -->
+    <section class="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-content">
+            <div class="overline">AGENT RISK &amp; ORDER AUDIT FOR BITGET</div>
+            <h1 class="headline">
+                Your agents trade 24/7.<br>
+                <span class="highlight">Who audits them?</span>
+            </h1>
+            <p class="subhead">
+                BitGuard Sentinel reconstructs trades, scores risk, and enforces policy on Bitget agent order logs - locally, without API keys ever touching a server.
+            </p>
+            <div class="cta-group">
+                <a href="/dashboard" class="btn-primary large">Open Dashboard &rarr;</a>
+                <a href="#how-it-works" class="btn-secondary large">See How It Works</a>
+            </div>
+        </div>
+
+        <!-- --- Floating Stats --- -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-value">0</span>
+                <span class="stat-label">API keys collected</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Local audit</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-value">CLI + Web</span>
+                <span class="stat-label">Dual interface</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Features --- -->
+    <section id="features" class="features-section">
+        <div class="section-header">
+            <div class="overline">CAPABILITIES</div>
+            <h2>Everything you need to audit agent trades</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span class="material-symbols-outlined">monitoring</span>
+                </div>
+                <h3>Trade Reconstruction</h3>
+                <p>Automatically match entries and exits, reconstruct complete trade lifecycles from raw order fills.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span class="material-symbols-outlined">shield</span>
+                </div>
+                <h3>Risk Scoring</h3>
+                <p>Composite risk score from drawdown, leverage exposure, concentration, and overtrading signals.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span class="material-symbols-outlined">policy</span>
+                </div>
+                <h3>Policy Firewall</h3>
+                <p>Pre-trade intent evaluation against configurable rules - symbol allow-lists, leverage caps, position limits.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span class="material-symbols-outlined">visibility_off</span>
+                </div>
+                <h3>PII Redaction</h3>
+                <p>One-command redaction of UIDs, wallet addresses, API keys, and client order IDs before sharing reports.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span class="material-symbols-outlined">calculate</span>
+                </div>
+                <h3>PnL &amp; Metrics</h3>
+                <p>Realized PnL, win rate, profit factor, funding-rate bleed, and max drawdown - calculated locally.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span class="material-symbols-outlined">terminal</span>
+                </div>
+                <h3>CLI &amp; Web UI</h3>
+                <p>Full CLI for scripting and automation, plus a local web dashboard for interactive exploration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- How It Works --- -->
+    <section id="how-it-works" class="how-section">
+        <div class="section-header">
+            <div class="overline">WORKFLOW</div>
+            <h2>Three steps. Zero key exposure.</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <h3>Export Logs Locally</h3>
+                <p>Run <code>bitguard collect-bitget</code> with your own read-only Bitget credentials. Keys stay on your machine.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <h3>Run the Audit</h3>
+                <p>Use <code>bitguard audit</code> or paste JSON into the web dashboard. Trades are reconstructed and scored instantly.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <h3>Review &amp; Share</h3>
+                <p>View findings in the dashboard, redact sensitive data with <code>bitguard redact</code>, then share the clean report.</p>
+            </div>
+        </div>
+
+        <!-- --- Terminal Preview --- -->
+        <div class="terminal-preview">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <span class="terminal-title">bitguard - PowerShell</span>
+            </div>
+            <pre class="terminal-body"><span class="term-prompt">$</span> python -m bitguard audit samples/demo_agent_log_bundle.json
+<span class="term-output">{
+  "composite_risk_score": 42,
+  "health_grade": "A+",
+  "realized_pnl": 12450.20,
+  "max_drawdown_pct": 4.2,
+  "win_rate": 0.68,
+  "profit_factor": 2.14
+}</span>
+<span class="term-prompt">$</span> python -m bitguard serve --port 8765
+<span class="term-accent">BitGuard Sentinel running at http://127.0.0.1:8765</span></pre>
+        </div>
+    </section>
+
+    <!-- --- Audit Output --- -->
+    <section id="audit" class="audit-section">
+        <div class="section-header">
+            <div class="overline">AUDIT OUTPUT</div>
+            <h2>What the report covers</h2>
+        </div>
+        <div class="audit-grid">
+            <div class="audit-item">
+                <span class="material-symbols-outlined ok">check_circle</span>
+                <span>Entry &amp; exit reconstruction</span>
+            </div>
+            <div class="audit-item">
+                <span class="material-symbols-outlined ok">check_circle</span>
+                <span>Realized PnL per trade</span>
+            </div>
+            <div class="audit-item">
+                <span class="material-symbols-outlined ok">check_circle</span>
+                <span>Win rate &amp; profit factor</span>
+            </div>
+            <div class="audit-item">
+                <span class="material-symbols-outlined ok">check_circle</span>
+                <span>Max drawdown measurement</span>
+            </div>
+            <div class="audit-item">
+                <span class="material-symbols-outlined ok">check_circle</span>
+                <span>Open position concentration</span>
+            </div>
+            <div class="audit-item">
+                <span class="material-symbols-outlined ok">check_circle</span>
+                <span>Leverage exposure analysis</span>
+            </div>
+            <div class="audit-item">
+                <span class="material-symbols-outlined ok">check_circle</span>
+                <span>Funding-rate bleed tracking</span>
+            </div>
+            <div class="audit-item">
+                <span class="material-symbols-outlined ok">check_circle</span>
+                <span>Overtrading signal detection</span>
+            </div>
+            <div class="audit-item">
+                <span class="material-symbols-outlined ok">check_circle</span>
+                <span>Missing stop-loss decisions</span>
+            </div>
+            <div class="audit-item">
+                <span class="material-symbols-outlined ok">check_circle</span>
+                <span>Composite risk score &amp; health grade</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Dashboard Preview --- -->
+    <section class="preview-section">
+        <div class="section-header">
+            <div class="overline">DASHBOARD</div>
+            <h2>See it in action</h2>
+        </div>
+        <a href="/dashboard" class="preview-frame">
+            <img src="/screen.png" alt="BitGuard Sentinel Dashboard" class="preview-img">
+            <div class="preview-overlay">
+                <span class="btn-primary large">Open Live Dashboard &rarr;</span>
+            </div>
+        </a>
+    </section>
+
+    <!-- --- Quick Start --- -->
+    <section class="quickstart-section">
+        <div class="section-header">
+            <div class="overline">GET STARTED</div>
+            <h2>Up and running in 60 seconds</h2>
+        </div>
+        <div class="terminal-preview">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <span class="terminal-title">Quick Start</span>
+            </div>
+            <pre class="terminal-body"><span class="term-comment"># Clone and install</span>
+<span class="term-prompt">$</span> git clone &lt;your-repo-url&gt;
+<span class="term-prompt">$</span> cd Bitget
+<span class="term-prompt">$</span> python -m venv .venv && .venv\Scripts\activate
+<span class="term-prompt">$</span> pip install -r requirements.txt
+
+<span class="term-comment"># Generate demo records</span>
+<span class="term-prompt">$</span> python -m bitguard demo
+
+<span class="term-comment"># Launch dashboard</span>
+<span class="term-prompt">$</span> python -m bitguard serve --port 8765
+<span class="term-accent">BitGuard Sentinel running at http://127.0.0.1:8765</span></pre>
+        </div>
+    </section>
+
+    <!-- --- Footer --- -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="logo-text">BitGuard</span>
+                <span class="logo-badge">SENTINEL</span>
+            </div>
+            <p class="footer-tagline">Agent risk &amp; order audit for Bitget. No live execution. No hosted key collection. Local-only, read-only.</p>
+            <div class="footer-links">
+                <a href="/dashboard">Dashboard</a>
+                <a href="#features">Features</a>
+                <a href="#how-it-works">Workflow</a>
+                <a href="#audit">Audit Output</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.querySelector('.mobile-nav');
+        menuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            const icon = menuBtn.querySelector('.material-symbols-outlined');
+            icon.textContent = mobileNav.classList.contains('open') ? 'close' : 'menu';
+        });
+        // Close mobile nav on link click
+        mobileNav.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                menuBtn.querySelector('.material-symbols-outlined').textContent = 'menu';
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer - fade-in sections on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.feature-card, .step-card, .audit-item, .terminal-preview, .preview-frame').forEach(el => {
+            el.classList.add('fade-target');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+

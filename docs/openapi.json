@@ -1,0 +1,164 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "BitGuard Sentinel API",
+    "version": "0.2.0",
+    "description": "Post-trade order audit, replay intelligence, redaction, and usage-record API for trading agents."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8765"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "EvidenceBundle": {
+        "type": "object",
+        "required": ["agent_id", "run_id", "fills"],
+        "properties": {
+          "source": {"type": "string"},
+          "agent_id": {"type": "string"},
+          "run_id": {"type": "string"},
+          "product_type": {"type": "string"},
+          "orders": {"type": "array", "items": {"type": "object"}},
+          "fills": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["symbol", "side", "price", "quantity", "timestamp"],
+              "properties": {
+                "symbol": {"type": "string"},
+                "side": {"type": "string", "enum": ["buy", "sell", "long", "short", "open_long", "open_short", "close_long", "close_short"]},
+                "price": {"type": "number", "exclusiveMinimum": 0},
+                "quantity": {"type": "number", "exclusiveMinimum": 0},
+                "timestamp": {"type": "string"}
+              }
+            }
+          },
+          "market_context": {"type": "object"},
+          "agent_decisions": {"type": "array", "items": {"type": "object"}},
+          "skill_hub": {"type": "object"},
+          "copy_trading_pings": {"type": "array", "items": {"type": "object"}}
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "request_id": {"type": "string"},
+          "ok": {"type": "boolean"},
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {"type": "string"},
+              "message": {"type": "string"},
+              "details": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "Public health check",
+        "responses": {
+          "200": {"description": "Service health and configured optional integrations"}
+        }
+      }
+    },
+    "/api/ready": {
+      "get": {
+        "summary": "Public readiness check",
+        "responses": {
+          "200": {"description": "SQLite, auth, config, and public candle readiness"}
+        }
+      }
+    },
+    "/api/audit": {
+      "post": {
+        "summary": "Audit an evidence bundle",
+        "security": [{"BearerAuth": []}],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/EvidenceBundle"}
+            }
+          }
+        },
+        "responses": {
+          "200": {"description": "Audit report with risk metrics, order verdict, market replay, and pattern library"},
+          "401": {"description": "Missing bearer token", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+          "403": {"description": "Invalid bearer token", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+          "422": {"description": "Schema validation failed", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+          "429": {"description": "Rate limited", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}}
+        }
+      }
+    },
+    "/api/intelligence": {
+      "post": {
+        "summary": "Audit a bundle and generate replay intelligence",
+        "security": [{"BearerAuth": []}],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/EvidenceBundle"}
+            }
+          }
+        },
+        "responses": {
+          "200": {"description": "Audit plus deterministic or OpenRouter-backed replay coach brief"},
+          "401": {"description": "Missing bearer token"},
+          "422": {"description": "Schema validation failed"},
+          "429": {"description": "Rate limited"}
+        }
+      }
+    },
+    "/api/redact": {
+      "post": {
+        "summary": "Redact sensitive identifiers in a bundle",
+        "security": [{"BearerAuth": []}],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"type": "object"}
+            }
+          }
+        },
+        "responses": {
+          "200": {"description": "Redacted JSON bundle"},
+          "401": {"description": "Missing bearer token"},
+          "429": {"description": "Rate limited"}
+        }
+      }
+    },
+    "/api/usage": {
+      "get": {
+        "summary": "Read stored summary usage records",
+        "security": [{"BearerAuth": []}],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {"type": "integer", "default": 50, "minimum": 1, "maximum": 500}
+          }
+        ],
+        "responses": {
+          "200": {"description": "Recent usage summary records"},
+          "401": {"description": "Missing bearer token"},
+          "429": {"description": "Rate limited"}
+        }
+      }
+    }
+  }
+}

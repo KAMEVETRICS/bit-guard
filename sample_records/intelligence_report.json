@@ -1,0 +1,564 @@
+{
+  "audit": {
+    "agent_id": "sentinel-demo-agent",
+    "demo_only": true,
+    "findings": [
+      {
+        "code": "demo_data",
+        "message": "This audit uses demo-only simulated logs for hackathon reproduction.",
+        "severity": "info"
+      },
+      {
+        "code": "position_concentration",
+        "message": "Largest symbol exposure is above 65% of open notional.",
+        "severity": "high"
+      },
+      {
+        "code": "leverage_exposure",
+        "message": "Observed leverage above 3x. Agent should justify or reduce risk.",
+        "severity": "high"
+      },
+      {
+        "code": "funding_bleed",
+        "message": "Funding payments were net negative during the audited run.",
+        "severity": "medium"
+      },
+      {
+        "code": "missing_stop_loss",
+        "message": "One or more agent decisions did not include a stop-loss.",
+        "severity": "high"
+      }
+    ],
+    "generated_at": "2026-06-24T20:11:06Z",
+    "market_replay": {
+      "by_symbol": [
+        {
+          "candles": 3,
+          "first_timestamp": "2026-06-22T09:00:00Z",
+          "high_low_range_pct": 1.849,
+          "last_timestamp": "2026-06-22T15:00:00Z",
+          "market_move_pct": 1.2635,
+          "product_type": "USDT-FUTURES",
+          "symbol": "BTCUSDT"
+        },
+        {
+          "candles": 3,
+          "first_timestamp": "2026-06-22T16:00:00Z",
+          "high_low_range_pct": 3.1294,
+          "last_timestamp": "2026-06-23T02:00:00Z",
+          "market_move_pct": -1.5647,
+          "product_type": "USDT-FUTURES",
+          "symbol": "ETHUSDT"
+        }
+      ],
+      "fetch_status": "supplied",
+      "market_type": "futures",
+      "product_type": "USDT-FUTURES",
+      "recommendations": [
+        "Review ETHUSDT: the trade lost while market movement favored the opposite side.",
+        "Review ETHUSDT entry timing: entry was near the extreme of the replay window."
+      ],
+      "source": "demo-supplied-candles",
+      "status": "available",
+      "summary": "Market replay covered 2/2 completed trade(s) with candle context.",
+      "symbols": [
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "trade_replays": [
+        {
+          "adverse_excursion_pct": -0.0769,
+          "candles": 2,
+          "classification": "aligned_win",
+          "direction": "long",
+          "directional_market_move_pct": 1.1077,
+          "entry_quality": "entered favorable range",
+          "entry_to_exit_move_pct": 1.1538,
+          "exit_quality": "exited favorable range",
+          "favorable_excursion_pct": 1.5385,
+          "market_move_pct": 1.1077,
+          "market_type": "futures",
+          "product_type": "USDT-FUTURES",
+          "status": "available",
+          "summary": "BTCUSDT long moved 1.1538% from entry to exit while the replay window moved 1.1077% in trade direction. Favorable excursion was 1.5385%; adverse excursion was -0.0769%.",
+          "symbol": "BTCUSDT",
+          "trade_ref": "7cb44a20d91a"
+        },
+        {
+          "adverse_excursion_pct": -2.5568,
+          "candles": 2,
+          "classification": "wrong_side_loss",
+          "direction": "long",
+          "directional_market_move_pct": -1.7045,
+          "entry_quality": "chased upper range",
+          "entry_to_exit_move_pct": -1.7045,
+          "exit_quality": "gave back range",
+          "favorable_excursion_pct": 0.2841,
+          "market_move_pct": -1.7045,
+          "market_type": "futures",
+          "product_type": "USDT-FUTURES",
+          "status": "available",
+          "summary": "ETHUSDT long moved -1.7045% from entry to exit while the replay window moved -1.7045% in trade direction. Favorable excursion was 0.2841%; adverse excursion was -2.5568%.",
+          "symbol": "ETHUSDT",
+          "trade_ref": "a177486b836c"
+        }
+      ]
+    },
+    "metrics": {
+      "behavior": {
+        "active_trading_days": 2,
+        "completed_trade_count": 2,
+        "fill_count": 4,
+        "max_fills_in_day": 3,
+        "missing_stop_loss_decisions": 1
+      },
+      "exposure": {
+        "by_symbol": [
+          {
+            "notional_usdt": 4200.0,
+            "share_pct": 76.36,
+            "symbol": "BTCUSDT"
+          },
+          {
+            "notional_usdt": 1300.0,
+            "share_pct": 23.64,
+            "symbol": "ETHUSDT"
+          }
+        ],
+        "largest_position_concentration_pct": 76.36,
+        "largest_position_notional_usdt": 4200.0,
+        "max_leverage": 4.0,
+        "open_position_count": 2,
+        "total_notional_usdt": 5500.0,
+        "weighted_leverage": 3.53
+      },
+      "pnl": {
+        "fees_usdt": 5.7,
+        "funding_pnl_usdt": -5.3,
+        "gross_loss_usdt": 51.35,
+        "gross_profit_usdt": 20.15,
+        "max_drawdown_pct": 0.7112,
+        "profit_factor": 0.3924,
+        "starting_equity_usdt": 7200.0,
+        "total_realized_pnl_usdt": -31.2,
+        "win_rate_pct": 50.0
+      },
+      "risk_score": 73
+    },
+    "mode": "demo",
+    "normalized_preview": {
+      "agent_decisions": [
+        {
+          "action": "buy",
+          "confidence": 0.76,
+          "decision_ref": "b705fe517b3d",
+          "rationale": "Trend continuation after futures open interest expansion.",
+          "stop_loss": 63700.0,
+          "symbol": "BTCUSDT",
+          "take_profit": 67600.0,
+          "timestamp": "2026-06-22T08:59:00Z"
+        },
+        {
+          "action": "buy",
+          "confidence": 0.69,
+          "decision_ref": "a44abcbafcc8",
+          "rationale": "Mean reversion after a sharp pullback.",
+          "stop_loss": 0.0,
+          "symbol": "ETHUSDT",
+          "take_profit": 3670.0,
+          "timestamp": "2026-06-22T15:59:00Z"
+        }
+      ],
+      "funding_payments": [
+        {
+          "amount_usdt": -4.2,
+          "market_type": "futures",
+          "product_type": "USDT-FUTURES",
+          "rate": 0.00031,
+          "symbol": "BTCUSDT",
+          "timestamp": "2026-06-22T16:00:00Z"
+        },
+        {
+          "amount_usdt": -1.1,
+          "market_type": "futures",
+          "product_type": "USDT-FUTURES",
+          "rate": 0.00019,
+          "symbol": "ETHUSDT",
+          "timestamp": "2026-06-23T00:00:00Z"
+        }
+      ],
+      "positions": [
+        {
+          "leverage": 4.0,
+          "margin_usdt": 1050.0,
+          "market_type": "futures",
+          "notional_usdt": 4200.0,
+          "position_ref": "db89260c1f2d",
+          "product_type": "USDT-FUTURES",
+          "side": "long",
+          "symbol": "BTCUSDT",
+          "timestamp": "2026-06-23T09:00:00Z",
+          "unrealized_pnl_usdt": -35.0
+        },
+        {
+          "leverage": 2.0,
+          "margin_usdt": 650.0,
+          "market_type": "futures",
+          "notional_usdt": 1300.0,
+          "position_ref": "fdeeb3074076",
+          "product_type": "USDT-FUTURES",
+          "side": "long",
+          "symbol": "ETHUSDT",
+          "timestamp": "2026-06-23T09:00:00Z",
+          "unrealized_pnl_usdt": 12.0
+        }
+      ]
+    },
+    "order_audit": {
+      "basis": {
+        "completed_trades": 2,
+        "fills_analyzed": 4,
+        "high_findings": 3,
+        "market_context_status": "available",
+        "market_type": "futures",
+        "medium_findings": 1,
+        "open_positions": 2,
+        "orders_analyzed": 4,
+        "pairing_method": "net_position_fifo_v1",
+        "product_type": "USDT-FUTURES"
+      },
+      "confidence": "high",
+      "evidence": [
+        {
+          "message": "Detected futures market structure from USDT-FUTURES logs.",
+          "severity": "info",
+          "signal": "Market type"
+        },
+        {
+          "message": "Market replay covered 2/2 completed trade(s) with candle context.",
+          "severity": "info",
+          "signal": "Chart replay"
+        },
+        {
+          "message": "Analyzed 4 orders, 4 fills, and reconstructed 2 completed trades.",
+          "severity": "info",
+          "signal": "Data coverage"
+        },
+        {
+          "message": "Realized PnL is -31.2 USDT with 50.0% win rate and 0.3924 profit factor.",
+          "severity": "high",
+          "signal": "Realized outcome"
+        },
+        {
+          "message": "Maximum observed leverage is 4.0x with 3.53x weighted leverage.",
+          "severity": "high",
+          "signal": "Leverage"
+        },
+        {
+          "message": "Largest symbol concentration is 76.36% of open notional.",
+          "severity": "high",
+          "signal": "Concentration"
+        },
+        {
+          "message": "Net funding during the audited run is -5.3 USDT.",
+          "severity": "medium",
+          "signal": "Funding drag"
+        },
+        {
+          "message": "1 agent decision(s) were missing stop-loss values.",
+          "severity": "high",
+          "signal": "Risk controls"
+        }
+      ],
+      "label": "Post-trade failure",
+      "recommendations": [
+        "Flag this agent pattern: every future entry decision should include a stop-loss before it can be trusted.",
+        "For the next iteration, reduce leverage or require the agent to explain why this completed trade needed that exposure.",
+        "Tune sizing rules so one symbol cannot dominate realized and open risk.",
+        "Add a funding-rate replay check before holding futures trades through settlement windows again.",
+        "Treat this strategy version as unproven until profit factor recovers above 1.0 on fresh completed trade logs.",
+        "Review ETHUSDT: the trade lost while market movement favored the opposite side.",
+        "Review ETHUSDT entry timing: entry was near the extreme of the replay window."
+      ],
+      "score": 28,
+      "summary": "Post-trade failure: scored 28/100 with high confidence after reconstructing 2 completed trade(s). Realized PnL is -31.2 USDT, max drawdown is 0.7112%, max leverage is 4.0x, chart replay status is available, and 1 decision(s) missed stop-loss controls.",
+      "verdict": "fail"
+    },
+    "pattern_library": {
+      "narrative": "Every uploaded agent run teaches BitGuard which behaviors repeat, which ones paid, and which ones need guardrails.",
+      "patterns": [
+        {
+          "action": "Replay funding settlement before approving long holds.",
+          "avg_pnl_usdt": -5.3,
+          "conditions": [
+            "funding pnl < 0",
+            "max leverage = 4.0x"
+          ],
+          "description": "The run paid net funding while carrying futures exposure, so holding windows need a funding gate.",
+          "id": "funding-bleed-under-leverage",
+          "last_seen": "2026-06-23T02:00:05Z",
+          "sample_size": 2,
+          "status": "observed",
+          "symbols": [
+            "BTCUSDT",
+            "ETHUSDT"
+          ],
+          "title": "Funding bleed under leverage",
+          "win_rate_pct": 50.0
+        },
+        {
+          "action": "Promote this setup into an agent rule candidate and retest on more runs.",
+          "avg_pnl_usdt": 20.15,
+          "conditions": [
+            "replay = aligned win",
+            "avg in-trade candle move = 1.11%",
+            "entered favorable range",
+            "exited favorable range"
+          ],
+          "description": "Observed 1 completed trade(s) where replay classified behavior as aligned win.",
+          "id": "aligned_win",
+          "last_seen": "2026-06-22T15:00:05Z",
+          "sample_size": 1,
+          "status": "observed",
+          "symbols": [
+            "BTCUSDT"
+          ],
+          "title": "Aligned replay win",
+          "win_rate_pct": 100.0
+        },
+        {
+          "action": "Require a regime filter before taking this setup again.",
+          "avg_pnl_usdt": -51.35,
+          "conditions": [
+            "replay = wrong side loss",
+            "avg in-trade candle move = -1.7%",
+            "chased upper range",
+            "gave back range"
+          ],
+          "description": "Observed 1 completed trade(s) where replay classified behavior as wrong side loss.",
+          "id": "wrong_side_loss",
+          "last_seen": "2026-06-23T02:00:05Z",
+          "sample_size": 1,
+          "status": "risk",
+          "symbols": [
+            "ETHUSDT"
+          ],
+          "title": "Wrong-side candle loss",
+          "win_rate_pct": 0.0
+        },
+        {
+          "action": "Treat whale pings as context, then require replay and risk confirmation.",
+          "avg_pnl_usdt": -31.2,
+          "conditions": [
+            "whale ping observed",
+            "perception verdict = avoid",
+            "agent execution risk present"
+          ],
+          "description": "Copy or whale activity was present, but the perception layer marked the setup as risky.",
+          "id": "whale-ping-conflict",
+          "last_seen": "2026-06-23T02:00:05Z",
+          "sample_size": 1,
+          "status": "risk",
+          "symbols": [
+            "BTCUSDT"
+          ],
+          "title": "Whale ping conflict",
+          "win_rate_pct": 50.0
+        }
+      ],
+      "source": "current-audit-run",
+      "summary": {
+        "avg_win_rate_pct": 50.0,
+        "observed_patterns": 2,
+        "risk_patterns": 2,
+        "total_patterns": 4,
+        "verified_patterns": 0
+      }
+    },
+    "perception_layer": {
+      "basis": {
+        "method": "skill_hub_copy_trading_v1",
+        "order_audit_verdict": "fail",
+        "skill_hub_signals": 5,
+        "whale_pings": 1
+      },
+      "confidence": "high",
+      "label": "Likely trap",
+      "recommendations": [
+        "Do not mirror the whale ping blindly; compare it with order-book depth, candle replay, and leverage crowding before acting on the signal.",
+        "Treat bullish pings as counter-trend until the macro or news backdrop improves.",
+        "Treat this as failed agent behavior until a later trade log shows cleaner risk controls."
+      ],
+      "score": 18,
+      "signals": [
+        {
+          "opportunity_points": 12.0,
+          "risk_points": 31.0,
+          "skill": "macro-analyst",
+          "stance": "mixed headwind",
+          "summary": "Macro backdrop is mixed: risk assets have support, but dollar strength and event risk keep BTC from a clean risk-on setup."
+        },
+        {
+          "opportunity_points": 12.0,
+          "risk_points": 0.0,
+          "skill": "market-intel",
+          "stance": "whale accumulation bullish",
+          "summary": "Top-trader and market-structure proxies show BTC accumulation, but the signal needs confirmation from derivatives positioning."
+        },
+        {
+          "opportunity_points": 0.0,
+          "risk_points": 14.0,
+          "skill": "news-briefing",
+          "stance": "event risk",
+          "summary": "Fresh market headlines point to catalyst risk around upcoming policy and liquidity events."
+        },
+        {
+          "opportunity_points": 0.0,
+          "risk_points": 14.0,
+          "skill": "sentiment-analyst",
+          "stance": "crowded longs funding elevated",
+          "summary": "Long exposure is crowded and funding is elevated, increasing long-squeeze risk if price stalls."
+        },
+        {
+          "opportunity_points": 12.0,
+          "risk_points": 12.0,
+          "skill": "technical-analysis",
+          "stance": "bullish trend near resistance",
+          "summary": "Trend remains constructive, but price is close to resistance and needs breakout confirmation."
+        }
+      ],
+      "summary": "Likely trap: scored 18/100 with high confidence from 5 Skill Hub signal(s) and 1 copy-trading/whale ping(s). The score rewards aligned whale, market-structure, and technical context while penalizing crowded positioning, weak macro, and risky agent execution.",
+      "verdict": "avoid",
+      "whale_pings": [
+        {
+          "direction": "long",
+          "followers": 1860,
+          "leader_drawdown_pct": 12.4,
+          "notional_usdt": 4200.0,
+          "score": 37,
+          "source": "copy_trading",
+          "summary": "A highly followed copy-trading leader is net long BTC, but the follower crowd is large and the leader has meaningful drawdown.",
+          "symbol": "BTCUSDT",
+          "verdict": "avoid"
+        }
+      ]
+    },
+    "privacy": {
+      "api_keys_required_by_dashboard": false,
+      "redaction": "Sensitive identifiers are omitted or hashed in reports."
+    },
+    "product": "BitGuard Sentinel",
+    "run_id": "demo-run-001",
+    "source": "demo-agent-log-schema",
+    "summary": {
+      "completed_trades": 2,
+      "fills": 4,
+      "health_grade": "D",
+      "market_context_status": "available",
+      "market_type": "futures",
+      "max_drawdown_pct": 0.7112,
+      "order_audit_score": 28,
+      "order_audit_verdict": "fail",
+      "orders": 4,
+      "patterns": 4,
+      "perception_score": 18,
+      "perception_verdict": "avoid",
+      "positions": 2,
+      "product_type": "USDT-FUTURES",
+      "risk_score": 73,
+      "total_realized_pnl_usdt": -31.2,
+      "verified_patterns": 0
+    },
+    "trades": [
+      {
+        "direction": "long",
+        "entry_price": 65000.0,
+        "entry_time": "2026-06-22T09:00:05Z",
+        "exit_price": 65750.0,
+        "exit_time": "2026-06-22T15:00:05Z",
+        "fees_usdt": 2.35,
+        "market_type": "futures",
+        "notional_usdt": 1950.0,
+        "outcome": "win",
+        "product_type": "USDT-FUTURES",
+        "quantity": 0.03,
+        "realized_pnl_usdt": 20.15,
+        "return_pct": 1.0333,
+        "symbol": "BTCUSDT",
+        "trade_ref": "7cb44a20d91a"
+      },
+      {
+        "direction": "long",
+        "entry_price": 3520.0,
+        "entry_time": "2026-06-22T16:00:05Z",
+        "exit_price": 3460.0,
+        "exit_time": "2026-06-23T02:00:05Z",
+        "fees_usdt": 3.35,
+        "market_type": "futures",
+        "notional_usdt": 2816.0,
+        "outcome": "loss",
+        "product_type": "USDT-FUTURES",
+        "quantity": 0.8,
+        "realized_pnl_usdt": -51.35,
+        "return_pct": -1.8235,
+        "symbol": "ETHUSDT",
+        "trade_ref": "a177486b836c"
+      }
+    ]
+  },
+  "brief": {
+    "analysis": {
+      "contradictions": [
+        "Macro backdrop is mixed: risk assets have support, but dollar strength and event risk keep BTC from a clean risk-on setup.",
+        "Fresh market headlines point to catalyst risk around upcoming policy and liquidity events.",
+        "Long exposure is crowded and funding is elevated, increasing long-squeeze risk if price stalls.",
+        "Trend remains constructive, but price is close to resistance and needs breakout confirmation."
+      ],
+      "execution_posture": "avoid",
+      "headline": "Post-trade failure with 2/2 candle replay(s) scored",
+      "invalidation_triggers": [
+        "Flag this agent pattern: every future entry decision should include a stop-loss before it can be trusted.",
+        "For the next iteration, reduce leverage or require the agent to explain why this completed trade needed that exposure.",
+        "Tune sizing rules so one symbol cannot dominate realized and open risk.",
+        "Review ETHUSDT: the trade lost while market movement favored the opposite side."
+      ],
+      "next_checks": [
+        "Review ETHUSDT: the trade lost while market movement favored the opposite side.",
+        "Review ETHUSDT entry timing: entry was near the extreme of the replay window.",
+        "Do not mirror the whale ping blindly; compare it with order-book depth, candle replay, and leverage crowding before acting on the signal.",
+        "Treat bullish pings as counter-trend until the macro or news backdrop improves."
+      ],
+      "replay_notes": [
+        "BTCUSDT long: aligned win; trade moved 1.15% while candles moved 1.11% in-trade, with 1.54% max favorable excursion.",
+        "ETHUSDT long: wrong side loss; trade moved -1.70% while candles moved -1.70% in-trade, with 0.28% max favorable excursion."
+      ],
+      "thesis": "Post-trade failure: scored 28/100 with high confidence after reconstructing 2 completed trade(s). Realized PnL is -31.2 USDT, max drawdown is 0.7112%, max leverage is 4.0x, chart replay status is available, and 1 decision(s) missed stop-loss controls. Market replay covered 2/2 completed trade(s) with candle context. Likely trap: scored 18/100 with high confidence from 5 Skill Hub signal(s) and 1 copy-trading/whale ping(s). The score rewards aligned whale, market-structure, and technical context while penalizing crowded positioning, weak macro, and risky agent execution.",
+      "what_could_be_better": [
+        "BTCUSDT: preserve the setup constraints; replay shows price action and trade outcome were aligned.",
+        "ETHUSDT: add a regime check before entry; replay candles moved -1.70% against the trade while the position closed red.",
+        "ETHUSDT: avoid chasing range extremes; require pullback, confirmation, or reduced size on late entries.",
+        "ETHUSDT: add a trailing exit or partial take-profit rule so favorable movement is not handed back."
+      ]
+    },
+    "provider": "deterministic",
+    "reason": "OpenRouter API key is not configured.",
+    "status": "fallback",
+    "truenorth_status": "not_configured"
+  },
+  "generated_at": "2026-06-24T20:11:06Z",
+  "mode": "ai-intelligence",
+  "product": "BitGuard Sentinel",
+  "symbol": "BTCUSDT",
+  "truenorth": {
+    "signals": [],
+    "status": "not_configured",
+    "summary": "TrueNorth MCP URL is not configured; using submitted Skill Hub snapshots only.",
+    "tools_requested": [
+      "technical_analysis",
+      "derivatives_analysis",
+      "hyperliquid_smart_money",
+      "trending_discovery",
+      "events"
+    ]
+  }
+}

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BitGuard Sentinel - Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#004c6e",
+                      "surface-tint": "#006a61",
+                      "tertiary-fixed": "#c9e6ff",
+                      "surface-variant": "#e0e3e5",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "on-tertiary-container": "#fcfcff",
+                      "primary-fixed-dim": "#6bd8cb",
+                      "tertiary-fixed-dim": "#89ceff",
+                      "outline": "#6d7a77",
+                      "on-secondary-fixed": "#0b1c30",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#001e2f",
+                      "primary-container": "#008378",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "background": "#f7f9fb",
+                      "tertiary-container": "#007cb1",
+                      "surface-container": "#eceef0",
+                      "primary-fixed": "#89f5e7",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#00201d",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-low": "#f2f4f6",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "on-surface": "#191c1e",
+                      "on-primary-container": "#f4fffc",
+                      "on-primary-fixed-variant": "#005049",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-secondary-container": "#54647a",
+                      "secondary": "#505f76",
+                      "inverse-primary": "#6bd8cb",
+                      "outline-variant": "#bcc9c6",
+                      "secondary-fixed": "#d3e4fe",
+                      "on-primary": "#ffffff",
+                      "secondary-container": "#d0e1fb",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface-bright": "#f7f9fb",
+                      "tertiary": "#00628d",
+                      "on-background": "#191c1e",
+                      "on-tertiary": "#ffffff",
+                      "primary": "#00685f",
+                      "on-surface-variant": "#3d4947",
+                      "inverse-surface": "#2d3133",
+                      "surface-container-high": "#e6e8ea",
+                      "surface": "#f7f9fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "xl": "32px",
+                      "xs": "4px",
+                      "base": "4px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "margin-mobile": "16px",
+                      "gutter": "16px",
+                      "margin-desktop": "24px"
+              },
+              "fontFamily": {
+                      "mono-data": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "mono-data": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "16px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for data dense areas */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-sm h-screen overflow-hidden flex">
+<!-- Top Navigation Container (Shared Component Integration) -->
+<header class="fixed top-0 right-0 left-[240px] h-16 z-40 border-b border-outline-variant bg-surface-bright flex items-center justify-between px-lg w-full">
+<div class="flex items-center space-x-lg">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Infrastructure Dashboard</span>
+<nav class="hidden md:flex items-center space-x-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md cursor-pointer active:scale-95 transition-transform" href="#">Network Status</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md cursor-pointer active:scale-95 transition-transform" href="#">Engine Logs</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md cursor-pointer active:scale-95 transition-transform" href="#">Risk Limits</a>
+</nav>
+</div>
+<div class="flex items-center space-x-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant overflow-hidden ml-md">
+<img alt="Analyst Avatar" class="w-full h-full object-cover" data-alt="A small, professional headshot avatar of a security analyst in a modern, light-mode corporate setting. High key lighting, minimal background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP9SqDjZC-gaNjer71twWW41quacd1mdqUQb9HZlWq7YzhqhjrsHGaE4Mdl4VRjBmXRd1ezCFFvpJMWDvv_wj7PPQ3ZSPcD5tnJMSRtiUYiCMbU747AXzJtX9M06Xq5v7iD_GtZVlbRMriTKBCfeedSJprzJNY_F6GsnanqQH3RIL3-BYrJKRJgv8-6kPFIvKQQ1mY0I0AgkRkOa0c2ROB3w3ebzXXe_Cvc1Ol41iRCtcaiXzXWh8bCdj7yY_G67IdeobmsKH4Pvc"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation (Log Bundle Panel + Shared Component Nav) -->
+<aside class="fixed left-0 top-0 h-screen w-[240px] bg-surface border-r border-outline-variant flex flex-col z-50">
+<!-- Brand Header -->
+<div class="p-md border-b border-outline-variant">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">BitGuard Sentinel</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 leading-tight">Audit agent trading behavior without sharing API keys.</p>
+</div>
+<!-- Log Bundle Panel -->
+<div class="flex-1 overflow-y-auto p-md flex flex-col space-y-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-sm">Log Bundle (JSON)</label>
+<textarea class="w-full h-48 bg-surface-container-low border border-outline-variant rounded font-mono-data text-mono-data text-on-surface p-sm resize-none focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:ring-opacity-20" placeholder="Paste trading logs here..."></textarea>
+</div>
+<div class="space-y-sm">
+<button class="w-full bg-[#0D9488] text-[#FFFFFF] font-label-md text-label-md py-2 px-4 rounded hover:bg-opacity-90 transition-colors">Run Audit</button>
+<div class="grid grid-cols-2 gap-sm">
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md py-2 px-2 rounded hover:border-[#CBD5E1] transition-colors">Load Demo</button>
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md py-2 px-2 rounded hover:border-[#CBD5E1] transition-colors">Redact</button>
+</div>
+<button class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md py-2 px-4 rounded flex items-center justify-center space-x-2 hover:border-[#CBD5E1] transition-colors">
+<span class="material-symbols-outlined text-[16px]">file_open</span>
+<span>Open JSON</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-outline text-center mt-auto">Dashboard does not require API keys.</p>
+</div>
+<!-- Shared Component Nav Links (Bottom of sidebar) -->
+<nav class="flex flex-col border-t border-outline-variant p-sm">
+<a class="flex items-center px-sm py-2 text-primary font-bold border-r-2 border-primary bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm text-[20px]">dashboard</span>
+<span class="font-body-sm text-body-sm">Overview</span>
+</a>
+<a class="flex items-center px-sm py-2 text-secondary font-medium hover:bg-surface-container-high transition-colors active:opacity-80" href="#">
+<span class="material-symbols-outlined mr-sm text-[20px]">receipt_long</span>
+<span class="font-body-sm text-body-sm">Order Audit</span>
+</a>
+<a class="flex items-center px-sm py-2 text-secondary font-medium hover:bg-surface-container-high transition-colors active:opacity-80" href="#">
+<span class="material-symbols-outlined mr-sm text-[20px]">monitoring</span>
+<span class="font-body-sm text-body-sm">Exposure</span>
+</a>
+<a class="flex items-center px-sm py-2 text-secondary font-medium hover:bg-surface-container-high transition-colors active:opacity-80" href="#">
+<span class="material-symbols-outlined mr-sm text-[20px]">description</span>
+<span class="font-body-sm text-body-sm">Raw Report</span>
+</a>
+</nav>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-[240px] mt-16 flex-1 h-[calc(100vh-64px)] overflow-y-auto bg-background p-lg">
+<!-- Alert -->
+<div class="bg-[#FEF3C7] border border-[#FDE68A] text-[#92400E] px-md py-sm rounded mb-lg flex items-start space-x-sm font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] mt-0.5">warning</span>
+<span>This audit uses simulated demo logs for hackathon reproduction.</span>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-lg">
+<!-- Key Metrics - Top Row -->
+<div class="col-span-12 md:col-span-8 grid grid-cols-4 gap-md">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md hover:border-[#CBD5E1] transition-colors col-span-2 sm:col-span-1 flex flex-col justify-between h-24">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Risk Score</span>
+<div class="flex items-baseline space-x-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface">42</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md hover:border-[#CBD5E1] transition-colors col-span-2 sm:col-span-1 flex flex-col justify-between h-24">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Health Grade</span>
+<span class="font-headline-lg text-headline-lg text-[#10B981]">A+</span>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md hover:border-[#CBD5E1] transition-colors col-span-2 sm:col-span-1 flex flex-col justify-between h-24">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total PnL</span>
+<span class="font-headline-lg text-headline-lg text-[#10B981]">$12,450.20</span>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md hover:border-[#CBD5E1] transition-colors col-span-2 sm:col-span-1 flex flex-col justify-between h-24">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Max Drawdown</span>
+<span class="font-headline-lg text-headline-lg text-[#EF4444]">4.2%</span>
+</div>
+<!-- Stat Card 5 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md hover:border-[#CBD5E1] transition-colors col-span-2 sm:col-span-1 flex flex-col justify-between h-24">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Max Leverage</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">10x</span>
+</div>
+<!-- Stat Card 6 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md hover:border-[#CBD5E1] transition-colors col-span-2 sm:col-span-1 flex flex-col justify-between h-24">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pos. Concentration</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">15%</span>
+</div>
+<!-- Stat Card 7 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md hover:border-[#CBD5E1] transition-colors col-span-2 sm:col-span-1 flex flex-col justify-between h-24">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Funding PnL</span>
+<span class="font-headline-lg text-headline-lg text-[#EF4444]">-$420.00</span>
+</div>
+<!-- Stat Card 8 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md hover:border-[#CBD5E1] transition-colors col-span-2 sm:col-span-1 flex flex-col justify-between h-24">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Completed Trades</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">154</span>
+</div>
+</div>
+<!-- Run Notes (Side panel) -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded hover:border-[#CBD5E1] transition-colors flex flex-col">
+<div class="p-sm border-b border-outline-variant bg-surface-container-low">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Run Notes</h2>
+</div>
+<div class="p-md flex-1 overflow-y-auto space-y-sm">
+<div class="flex justify-between border-b border-surface-variant pb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Agent ID</span>
+<span class="font-mono-data text-mono-data text-on-surface">agt_9x2b4</span>
+</div>
+<div class="flex justify-between border-b border-surface-variant pb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Run ID</span>
+<span class="font-mono-data text-mono-data text-on-surface">run_0084f</span>
+</div>
+<div class="flex justify-between border-b border-surface-variant pb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Fills</span>
+<span class="font-mono-data text-mono-data text-on-surface">342</span>
+</div>
+<div class="flex justify-between border-b border-surface-variant pb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active Days</span>
+<span class="font-mono-data text-mono-data text-on-surface">14</span>
+</div>
+<div class="flex justify-between border-b border-surface-variant pb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Fees</span>
+<span class="font-mono-data text-mono-data text-on-surface">-$184.50</span>
+</div>
+</div>
+</div>
+<!-- Findings List (Bottom Wide Panel) -->
+<div class="col-span-12 bg-surface-container-lowest border border-outline-variant rounded hover:border-[#CBD5E1] transition-colors">
+<div class="p-sm border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Automated Findings</h2>
+<span class="font-label-sm text-label-sm bg-surface-variant px-2 py-1 rounded text-on-surface-variant">3 Alerts</span>
+</div>
+<div class="p-0">
+<table class="w-full text-left border-collapse">
+<tbody>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors group">
+<td class="py-sm px-md w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#EF4444]/10 text-[#EF4444]">High Risk</span>
+</td>
+<td class="py-sm px-md font-body-sm text-body-sm text-on-surface">High Latency Detected</td>
+<td class="py-sm px-md font-body-sm text-body-sm text-on-surface-variant">Multiple orders submitted with &gt;500ms API response delay.</td>
+<td class="py-sm px-md text-right">
+<button class="opacity-0 group-hover:opacity-100 text-primary font-label-sm text-label-sm hover:underline transition-opacity">Details</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors group">
+<td class="py-sm px-md w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#F59E0B]/10 text-[#F59E0B]">Medium Risk</span>
+</td>
+<td class="py-sm px-md font-body-sm text-body-sm text-on-surface">Wash Trading Risk</td>
+<td class="py-sm px-md font-body-sm text-body-sm text-on-surface-variant">Self-crossing detected on illiquid pairs (SOL-PERP).</td>
+<td class="py-sm px-md text-right">
+<button class="opacity-0 group-hover:opacity-100 text-primary font-label-sm text-label-sm hover:underline transition-opacity">Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-sm px-md w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#0EA5E9]/10 text-[#0EA5E9]">Info</span>
+</td>
+<td class="py-sm px-md font-body-sm text-body-sm text-on-surface">Consistent Funding Bleed</td>
+<td class="py-sm px-md font-body-sm text-body-sm text-on-surface-variant">Long positions held through consecutive negative funding cycles.</td>
+<td class="py-sm px-md text-right">
+<button class="opacity-0 group-hover:opacity-100 text-primary font-label-sm text-label-sm hover:underline transition-opacity">Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</body></html>

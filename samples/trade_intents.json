@@ -1,0 +1,43 @@
+[
+  {
+    "agent_id": "trend-agent-alpha",
+    "strategy_id": "ema-rsi-guarded",
+    "symbol": "BTCUSDT",
+    "product_type": "USDT-FUTURES",
+    "side": "buy",
+    "entry_price": 65000,
+    "quantity": 0.003,
+    "leverage": 2,
+    "stop_loss": 63700,
+    "take_profit": 67600,
+    "confidence": 0.72,
+    "rationale": "Fast EMA is above slow EMA and RSI is not overbought."
+  },
+  {
+    "agent_id": "breakout-agent-beta",
+    "strategy_id": "overlevered-breakout",
+    "symbol": "BTCUSDT",
+    "product_type": "USDT-FUTURES",
+    "side": "buy",
+    "entry_price": 65000,
+    "notional_usdt": 900,
+    "leverage": 8,
+    "take_profit": 67600,
+    "confidence": 0.81,
+    "rationale": "Momentum breakout, but no stop-loss was attached."
+  },
+  {
+    "agent_id": "mean-reversion-gamma",
+    "strategy_id": "eth-pullback",
+    "symbol": "ETHUSDT",
+    "product_type": "SPOT",
+    "side": "buy",
+    "entry_price": 3200,
+    "notional_usdt": 160,
+    "leverage": 1,
+    "stop_loss": 3136,
+    "take_profit": 3328,
+    "confidence": 0.66,
+    "rationale": "Spot pullback buy with 2R exit geometry."
+  }
+]

@@ -1,0 +1,16 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+dist/
+build/
+logs/*.jsonl
+outputs/
+exports/
+*.local.json
+data/*.db
+*.db-shm
+*.db-wal
+tmp*/

@@ -1,0 +1,3 @@
+# No runtime dependencies are required.
+# Optional Bitget Skill Hub technical-analysis helpers use pandas/numpy in Codex,
+# but this app runs with the Python standard library.
