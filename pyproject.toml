@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "bitguard-sentinel"
 version = "0.2.0"
 description = "Agent risk and order audit dashboard for Bitget trading agents."
