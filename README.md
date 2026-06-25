@@ -41,6 +41,21 @@ OPENROUTER_MODEL=z-ai/glm-5.2
 
 If OpenRouter publishes GLM 5.2 under a different model slug, update `OPENROUTER_MODEL` in `.env`.
 
+## Live Deployment
+
+Public Railway deployment:
+
+```text
+https://bit-guard-production.up.railway.app
+```
+
+Dashboard:
+
+```text
+https://bit-guard-production.up.railway.app/dashboard
+```
+
+Hosted write endpoints require a bearer token issued by the project operator.
 ## Access Method
 
 Run the local dashboard and API:

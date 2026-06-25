@@ -2,6 +2,8 @@
 
 BitGuard Sentinel is production-ready for a hackathon-hosted MVP: token-protected API actions, SQLite usage records, schema validation, request limits, and a Railway deployment path. It is not a full SaaS login product.
 
+Live deployment: https://bit-guard-production.up.railway.app
+
 ## Railway Deployment
 
 1. Push this repository to a public GitHub repo.
