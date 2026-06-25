@@ -933,6 +933,10 @@ DASHBOARD_HTML = """<!doctype html>
         linear-gradient(180deg, rgba(9, 20, 33, 0.98), rgba(4, 9, 16, 0.98));
       border-right: 1px solid rgba(70, 199, 255, 0.18);
       box-shadow: 18px 0 60px rgba(0, 0, 0, 0.24);
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(70, 199, 255, 0.4) transparent;
     }
     .rail-brand {
       padding: 22px 20px 18px;
@@ -962,8 +966,11 @@ DASHBOARD_HTML = """<!doctype html>
     }
     textarea {
       width: calc(100% - 40px);
+      height: clamp(260px, 42vh, 460px);
+      min-height: 260px;
+      max-height: 46vh;
+      flex: 0 0 auto;
       margin: 14px 20px;
-      min-height: calc(100vh - 250px);
       color: #cfe7f8;
       background: #050b13;
       border: 1px solid rgba(70, 199, 255, 0.2);
@@ -1051,7 +1058,7 @@ DASHBOARD_HTML = """<!doctype html>
       border-color: #8ee3ff;
     }
     main > section:first-child::after {
-      margin: auto 20px 18px;
+      margin: 0 20px 18px;
       padding: 10px 12px;
       border: 1px solid rgba(70, 199, 255, 0.14);
       border-radius: 10px;
