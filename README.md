@@ -13,8 +13,8 @@ The intended production data source is a locally exported Bitget read-only log b
 ## Installation
 
 ```bash
-git clone <your-public-repo-url>
-cd Bitget
+git clone https://github.com/KAMEVETRICS/bit-guard.git
+cd bit-guard
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
